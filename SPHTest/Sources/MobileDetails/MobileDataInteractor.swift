@@ -42,23 +42,39 @@ class MobileDataInteractor: MobileDataDetailsBusinessLogic, MobileDetailsDataSto
   func addDataYearly(record :  [MobileDataDetails.Data.Records]) {
     var lastYear = 0
     var year = 0
+    self.posts = []
+    var lastQData = 0.00
+    var isValueDataDesc = false
     var yearlyMobileData = 0.00
         for value in (record){
          let quarterData = value.quarter?.components(separatedBy: "-")
             year  = Int(quarterData?[0] ?? "") ?? 0
             if year >= 2008 && year <= 2019 {
-                var mobileData = Double(Float(value.volume_of_mobile_data ?? "") ?? 0)
-                if lastYear == year  {
+                let mobileData = Double(Float(value.volume_of_mobile_data ?? "") ?? 0)
+                if lastYear == year || lastYear == 0 {
                     yearlyMobileData += mobileData
+                    isValueDataDesc = decInDataYearly(lastQData:lastQData, currentQData:mobileData, isValueDataDesc:isValueDataDesc)
                 }else if lastYear != 0 {
-                let model = MobileDataFieldsViewModel(volume: String(yearlyMobileData) , quarter: String(lastYear) ?? "", id: value._id ?? 0)
-                posts.append(model)
-                yearlyMobileData = mobileData
+                    let model = MobileDataFieldsViewModel(volume: String(yearlyMobileData) , quarter: String(lastYear) , id: value._id ?? 0, volumeDataDecrease: isValueDataDesc)
+                    posts.append(model)
+                    yearlyMobileData = mobileData
+                    isValueDataDesc = false
                 }
+                lastQData = mobileData
                 lastYear = year
-
             }
         }
     self.presenter?.presentMobileData(response: posts)
+    }
+    
+    func decInDataYearly(lastQData: Double, currentQData: Double, isValueDataDesc: Bool) -> Bool {
+        if !isValueDataDesc {
+            if currentQData < lastQData {
+                return true
+            }else {
+                return false
+            }
+        }
+        return true
     }
 }

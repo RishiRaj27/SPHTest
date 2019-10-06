@@ -21,7 +21,6 @@ class PostDetailsWorker
             
             completion(publicData,nil)
         } catch let err {
-            print("Err", err)
             completion(nil,err)
         }
         }.resume()

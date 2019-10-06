@@ -38,11 +38,15 @@ class MobileDataViewController: UITableViewController, MobileDataDisplayLogic {
       self.tableView.register(MobileDataCellTableViewCell.self, forCellReuseIdentifier: "MobileDataCellTableViewCell")
       tableView.rowHeight = UITableView.automaticDimension
       tableView.estimatedRowHeight = 44
-      fetchMobileData()
+        self.fetchMobileData()
       navigationItem.title = "Mobile Data Usage"
       let refreshControl = UIRefreshControl()
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = refreshControl
+        } else {
+            self.tableView.addSubview(refreshControl)
+        }
       refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-      self.refreshControl = refreshControl
     }
     
     // MARK: fetchPosts
@@ -51,6 +55,7 @@ class MobileDataViewController: UITableViewController, MobileDataDisplayLogic {
     {
         let request = MobileDataDetails.Data.Request()
         interactor?.fetchMobileData(request: request)
+        refreshControl?.endRefreshing()
     }
     
     func displayMobileData(viewModel: [MobileDataFieldsViewModel])
@@ -62,29 +67,18 @@ class MobileDataViewController: UITableViewController, MobileDataDisplayLogic {
     }
     
     @objc func refreshData() {
+       self.postData?.removeAll()
+       tableView.reloadData()
        self.fetchMobileData()
-        refreshControl?.endRefreshing()
-
+      
+        
     }
-
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension MobileDataViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
         return self.postData?.count ?? 0
     }
     
