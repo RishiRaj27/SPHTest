@@ -133,6 +133,7 @@ class MobileDataCellTableViewCell: UITableViewCell {
             titleYear.text = data.quarter
             descriptionData.text = data.volume
             if data.volumeDataDecrease == true {
+                clickableImageView.isHidden = false
                 clickableImageView.image = UIImage(named:"chart")
             }else {
                 clickableImageView.isHidden = true
