@@ -22,6 +22,10 @@
 		5B278C862349AC2B00562405 /* MobileDataCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C852349AC2B00562405 /* MobileDataCellTableViewCell.swift */; };
 		5B278C892349ADD800562405 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C882349ADD800562405 /* URLConstants.swift */; };
 		5B278C8E2349CDE800562405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B278C8D2349CDE700562405 /* Main.storyboard */; };
+		5B278C90234A658500562405 /* MobileDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C8F234A658500562405 /* MobileDetailViewControllerTests.swift */; };
+		5B278C92234A6D5A00562405 /* MobileDataInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C91234A6D5A00562405 /* MobileDataInteractorTests.swift */; };
+		5B278C94234A6F8100562405 /* MobileDataPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C93234A6F8100562405 /* MobileDataPresenterTests.swift */; };
+		5B278C96234A713500562405 /* MobileDataWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B278C95234A713500562405 /* MobileDataWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		5B278C852349AC2B00562405 /* MobileDataCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataCellTableViewCell.swift; sourceTree = "<group>"; };
 		5B278C882349ADD800562405 /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		5B278C8D2349CDE700562405 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5B278C8F234A658500562405 /* MobileDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		5B278C91234A6D5A00562405 /* MobileDataInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataInteractorTests.swift; sourceTree = "<group>"; };
+		5B278C93234A6F8100562405 /* MobileDataPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataPresenterTests.swift; sourceTree = "<group>"; };
+		5B278C95234A713500562405 /* MobileDataWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataWorkerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,10 @@
 			children = (
 				5B278C582349A22300562405 /* SPHTestTests.swift */,
 				5B278C5A2349A22300562405 /* Info.plist */,
+				5B278C8F234A658500562405 /* MobileDetailViewControllerTests.swift */,
+				5B278C91234A6D5A00562405 /* MobileDataInteractorTests.swift */,
+				5B278C93234A6F8100562405 /* MobileDataPresenterTests.swift */,
+				5B278C95234A713500562405 /* MobileDataWorkerTests.swift */,
 			);
 			path = SPHTestTests;
 			sourceTree = "<group>";
@@ -345,7 +357,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B278C92234A6D5A00562405 /* MobileDataInteractorTests.swift in Sources */,
+				5B278C96234A713500562405 /* MobileDataWorkerTests.swift in Sources */,
 				5B278C592349A22300562405 /* SPHTestTests.swift in Sources */,
+				5B278C94234A6F8100562405 /* MobileDataPresenterTests.swift in Sources */,
+				5B278C90234A658500562405 /* MobileDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

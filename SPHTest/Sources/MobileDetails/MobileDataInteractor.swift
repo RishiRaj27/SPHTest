@@ -11,7 +11,6 @@ import UIKit
 protocol MobileDataDetailsBusinessLogic
 {
   func fetchMobileData(request: MobileDataDetails.Data.Request)
-  func addDataYearly(record: [MobileDataDetails.Data.Records])
 }
 
 protocol MobileDetailsDataStore
